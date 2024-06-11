@@ -22,7 +22,13 @@ docker compose up -d
 npx prisma migrate dev
 ```
 
-6. Ejecutar
+6. Levantar servidor de nats
+
+```
+docker run -d --name nats-server -p 4222:4222 -p 8222:8222 nats
+```
+
+7. Ejecutar
 
 ```
 npm run start:dev
