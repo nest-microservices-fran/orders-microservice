@@ -13,11 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum OrderStatus {
+enum OrdersStatus {
   PENDING
   PAID
   DELIVERED
-  CANCELLED
+  CANCELED
 }
 
 model Order {
@@ -25,8 +25,8 @@ model Order {
   totalAmount Float
   totalItems  Int
 
-  status         OrderStatus @default(PENDING)
-  paid           Boolean     @default(false)
+  status         OrdersStatus @default(PENDING)
+  paid           Boolean      @default(false)
   paidAt         DateTime?
   stripeChargeId String?
 
@@ -57,5 +57,4 @@ model OrderReceipt {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
 }
